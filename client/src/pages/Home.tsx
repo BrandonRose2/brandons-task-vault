@@ -33,7 +33,9 @@ import {
   Cpu,
   Coins,
   Hash,
+  Globe,
 } from "lucide-react";
+import { Link } from "wouter";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -445,6 +447,24 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-2 text-[10px] text-muted-foreground/60 font-mono">Backup: 2026-06-18</div>
+        </div>
+
+        {/* Navigation */}
+        <div className="px-3 py-2 border-b border-border space-y-1">
+          <div className="flex items-center gap-2 px-3 py-2 rounded-md text-xs font-semibold text-amber-400 bg-amber-400/10 border border-amber-400/20"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <Hash size={13} />
+            All Tasks
+          </div>
+          <Link
+            href="/apps"
+            className="flex items-center gap-2 px-3 py-2 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-colors border border-transparent"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            <Globe size={13} />
+            Apps &amp; Websites
+            <span className="ml-auto text-[10px] bg-muted px-1.5 py-0.5 rounded font-mono text-muted-foreground">42</span>
+          </Link>
         </div>
 
         {/* Quick stats */}
