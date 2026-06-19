@@ -34,9 +34,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+        working-directory: ./
 
       - name: Build
         run: pnpm build
+        working-directory: ./
         env:
           VITE_ANALYTICS_ENDPOINT: ""
           VITE_ANALYTICS_WEBSITE_ID: ""
@@ -64,4 +66,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
