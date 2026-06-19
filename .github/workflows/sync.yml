@@ -2,8 +2,8 @@ name: Sync Manus Tasks
 
 on:
   schedule:
-    # Runs every day at 6:00 AM UTC (2:00 AM EST / 1:00 AM CST)
-    - cron: "0 6 * * *"
+    # Runs every Monday at 6:00 AM UTC (2:00 AM EST / 1:00 AM CST)
+    - cron: "0 6 * * 1"
   workflow_dispatch:
     # Also allows manual trigger from GitHub Actions UI
 
