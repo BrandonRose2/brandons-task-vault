@@ -9,3 +9,4 @@
 - [x] Responsive: scales from tiny 200x100px window to full screen
 - [x] Dark/sleek background with golden button as sole focal point
 - [x] Write vitest tests for the tRPC procedure
+- [x] Redesign button as a 3D tactile arcade-style button with depth, bevels, glossy highlights, shadows, and press-down animation
