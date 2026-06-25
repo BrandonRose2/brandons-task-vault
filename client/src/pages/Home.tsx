@@ -1,20 +1,12 @@
-import { trpc } from "@/lib/trpc";
 import { useState, useEffect } from "react";
+
+const TASK_PROMPT = `Check the iCloud Recordings Vault/Inbox folder for new audio files. For each file: transcribe it with full dialogue and timestamps, create a summary, name it by topic and date, and sort it into the appropriate folder (Meetings, Calls, Personal Notes, Marc's Inappropriate Screaming, or Other). Move both the original audio and the summary document to the correct folder. Marc's voice profile: extremely loud, abrupt escalation, sharp demanding tone, repeats names rapidly, immediately issues direct commands.`;
 
 type ButtonState = "idle" | "processing" | "success" | "error";
 
 export default function Home() {
   const [state, setState] = useState<ButtonState>("idle");
   const [pressed, setPressed] = useState(false);
-
-  const mutation = trpc.recordings.trigger.useMutation({
-    onSuccess: () => {
-      setState("success");
-    },
-    onError: () => {
-      setState("error");
-    },
-  });
 
   // Auto-reset from success back to idle after 3s
   useEffect(() => {
@@ -32,10 +24,26 @@ export default function Home() {
     }
   }, [state]);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (state === "processing") return;
     setState("processing");
-    mutation.mutate();
+    try {
+      const response = await fetch("https://api.manus.ai/v2/task.create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-manus-api-key": import.meta.env.VITE_MANUS_API_KEY ?? "",
+        },
+        body: JSON.stringify({ message: { content: TASK_PROMPT } }),
+      });
+      const data = await response.json();
+      if (!response.ok || data.ok === false) {
+        throw new Error(data?.error?.message ?? `API error: ${response.status}`);
+      }
+      setState("success");
+    } catch {
+      setState("error");
+    }
   };
 
   const getLabel = () => {
