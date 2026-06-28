@@ -391,25 +391,5 @@
       "notes export",
       "file conversion"
     ]
-  },
-  {
-    "num": 22,
-    "id": "7186cfd3-b0b4-4108-a9b5-691b2dea44e0",
-    "title": "B68 Designs & Consulting \u2014 JARVIS Sci-Fi Website",
-    "url": "https://claude.ai/chat/7186cfd3-b0b4-4108-a9b5-691b2dea44e0",
-    "status": "completed",
-    "type": "build",
-    "category": "Marketing & Content",
-    "created": "2026-06-26",
-    "description": "Built a JARVIS/sci-fi aesthetic multi-page website for client B68 Designs & Consulting (AI/tech consulting, Los Angeles). Features hero landing page, AI Solutions page with EvilEye canvas visual, Portfolio page with project cards and filter buttons, and Contact page with form validation. Rebuilt as a single-page app with JavaScript-driven routing after initial multi-widget approach had broken navigation. Canvas particle network, glitch text animation, cursor-tracked EvilEye pupil.",
-    "output": "Single-page HTML SPA with canvas animations",
-    "tags": [
-      "sci-fi",
-      "JARVIS",
-      "B68 Designs",
-      "canvas",
-      "SPA",
-      "client website"
-    ]
   }
 ]
